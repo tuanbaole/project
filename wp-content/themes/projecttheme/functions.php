@@ -66,3 +66,47 @@
         add_action ( 'init', 'project_theme_setup' );
  
   }
+
+/**
+@ Thiết lập hàm hiển thị logo
+@ project_logo()
+**/
+if ( ! function_exists( 'project_logo' ) ) {
+  function project_logo() {?>
+    <div class="logo">
+      <div class="site-name">
+        <?php if ( is_home() ) {
+          printf(
+            '<h1><a href="%1$s" title="%2$s">%3$s</a></h1>',
+            get_bloginfo( 'url' ),
+            get_bloginfo( 'description' ),
+            get_bloginfo( 'sitename' )
+          );
+        } else {
+          printf(
+            '<p><a href="%1$s" title="%2$s">%3$s</a></p>',
+            get_bloginfo( 'url' ),
+            get_bloginfo( 'description' ),
+            get_bloginfo( 'sitename' )
+          );
+        } // endif ?>
+      </div>
+      <div class="site-description"><?php bloginfo( 'description' ); ?></div>
+    </div>
+  <?php }
+}
+
+/**
+@ Thiết lập hàm hiển thị menu
+@ project_menu( $slug )
+**/
+if ( ! function_exists( 'project_menu' ) ) {
+  function project_menu( $slug ) { // $slug chinh la menu duoc goi
+    $menu = array(
+      'theme_location' => $slug,
+      'container' => 'nav',
+      'container_class' => $slug,
+    );
+    wp_nav_menu( $menu );
+  }
+}
