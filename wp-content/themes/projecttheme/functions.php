@@ -110,3 +110,30 @@ if ( ! function_exists( 'project_menu' ) ) {
     wp_nav_menu( $menu );
   }
 }
+
+/**
+@ Tạo hàm phân trang cho index, archive.
+@ Hàm này sẽ hiển thị liên kết phân trang theo dạng chữ: Newer Posts & Older Posts
+@ thachpham_pagination()
+**/
+if ( ! function_exists( 'thachpham_pagination' ) ) {
+  function thachpham_pagination() {
+    /*
+     * Không hiển thị phân trang nếu trang đó có ít hơn 2 trang
+     */
+    if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+      return '';
+    }
+  ?>
+ 
+  <nav class="pagination" role="navigation">
+    <?php the_posts_pagination( array(
+    	'screen_reader_text' => ' ', 
+	    'mid_size' => 2,
+	    'prev_text' => __( 'Prev', 'Project' ),
+	    'next_text' => __( 'Next', 'Project' ),
+	    ''
+	) ); ?>
+  </nav><?php
+  }
+}
