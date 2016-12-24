@@ -116,8 +116,8 @@ if ( ! function_exists( 'project_menu' ) ) {
 @ Hàm này sẽ hiển thị liên kết phân trang theo dạng chữ: Newer Posts & Older Posts
 @ thachpham_pagination()
 **/
-if ( ! function_exists( 'thachpham_pagination' ) ) {
-  function thachpham_pagination() {
+if ( ! function_exists( 'project_pagination' ) ) {
+  function project_pagination() {
     /*
      * Không hiển thị phân trang nếu trang đó có ít hơn 2 trang
      */

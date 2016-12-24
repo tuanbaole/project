@@ -7,7 +7,7 @@
     				the_post();
     				get_template_part( 'content', get_post_format() );
     			}
-    			thachpham_pagination();
+    			project_pagination();
     		} else {
     			get_template_part( 'content', 'none' );
     		}
